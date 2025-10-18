@@ -1,0 +1,35 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 2rem;
+}
+.todoList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.5rem;
+  padding: 2rem;
+  width: 100%;
+  max-width: 1200px;
+  background-color: #1a1a2e;
+  border-radius: 16px;
+}
+.todoItem {
+  background-color: #2a2a3a;
+  padding: 1.5rem;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #e0e0e0;
+  transition: transform 0.2s ease-in-out;
+}
+
+.todoItem:hover {
+  transform: translateY(-4px);
+  background-color: #474765;
+}
+
+.mode{
+  position:relative;
+}
