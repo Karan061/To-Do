@@ -1,0 +1,22 @@
+.theme{
+  position: fixed;
+  top: 1.5rem;
+  right: 1.5rem;
+  z-index: 10;
+  background-color: var(--item-bg-color);
+  color: var(--text-color);
+  border: 1px solid var(--item-border);
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+.theme:hover{
+  background-color: var(--item-hover-bg-color);
+  transform: scale(1.05);
+}
+
+.themeContainer{
+    position:relative;
+}
