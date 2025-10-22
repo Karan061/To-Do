@@ -26,9 +26,6 @@
 .env.test.local
 .env.production.local
 
-#Token to upload to github 
-pat.txt
-
 # IDE settings
 .idea
 .vscode/*

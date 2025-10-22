@@ -1,21 +1,27 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import Navbar from './components/Navbar/Navbar.js';
-import TodoList from './components/TodoList/TodoList.js';
 import ThemeButton from './components/ThemeButton/ThemeButton.js';
 import styles from './css/page.module.css';
-import navstyles from './components/Navbar/navbar.module.css';
+import { useRouter } from 'next/navigation.js';
 
 export default function HomePage() {
+  const router = useRouter();
   const [theme, setTheme] = useState('dark');
-  const [isNavOpen, setIsNavOpen] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(null);
+  
+  useEffect(() => {
+    const storedLogin = localStorage.getItem('isLoggedIn') === 'true';
+    if (!storedLogin) {
+      router.push('/auth/login');
+    }
+    else{
+      setIsLoggedIn(true);
+    }
+  }, [router]);
 
-  const toggleNav = () => {
-    setIsNavOpen(currentValue => !currentValue);
-  };
   const toggleTheme = () => {
-    setTheme(currentValue => (currentValue === 'dark' ? 'light' : 'dark'));
+    setTheme((t) => (t === 'dark' ? 'light' : 'dark'));
   };
 
   useEffect(() => {
@@ -24,31 +30,17 @@ export default function HomePage() {
 
   return (
     <div>
-      <button 
-        className={navstyles.menuButton} 
-        onClick={toggleNav}
-      >
-        <svg 
-          xmlns="http://www.w3.org/2000/svg" 
-          viewBox="0 0 24 24"
-          className={navstyles.hamburger} 
-        >
-          <path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"/>
-        </svg>
-      </button>
-
-      <Navbar 
-        isOpen={isNavOpen} 
-        onClose={toggleNav} 
-      />
-      <ThemeButton 
-          currentTheme={theme}
-          onToggleTheme={toggleTheme}
-        />
+      <ThemeButton currentTheme={theme} onToggleTheme={toggleTheme} />
       <main className={styles.container}>
-        <TodoList />
-      </main>
+        {isLoggedIn === null ? (
+        <p>Checking login...</p>
+        ) : isLoggedIn ? (
+        <h1>Welcome back!</h1>
+        ) : (
+    <p>Redirecting...</p>
+  )}
+</main>
+
     </div>
   );
 }
-

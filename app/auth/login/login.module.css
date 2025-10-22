@@ -1,0 +1,85 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh;
+  padding: 2rem;
+}
+
+.header2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: var(--text-color);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 400px;
+  gap: 1rem;
+  padding: 2rem;
+  border-radius: 12px;
+  background-color: var(--item-container-colour);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.login_input {
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border: 1px solid var(--item-border);
+  border-radius: 8px;
+  outline: none;
+  background-color: var(--item-bg-color);
+  color: var(--text-color);
+  transition: border-color 0.2s, box-shadow 0.2s, background-color 0.3s, color 0.3s;
+}
+
+.login_input:focus {
+  border-color: var(--button-text-color);
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.2);
+}
+
+.button {
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--button-text-color);
+  background-color: var(--item-bg-color);
+  border: 1px solid var(--button-text-color);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.button:hover:enabled {
+  background-color: var(--item-hover-bg-color);
+}
+
+.button:disabled {
+  background-color: #555;
+  cursor: not-allowed;
+}
+
+.error {
+  color: #ef4444;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.para {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: var(--text-color);
+}
+
+.para a {
+  color: var(--button-text-color);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.para a:hover {
+  text-decoration: underline;
+}
